@@ -13,3 +13,16 @@
     display: inline-block;
     margin: 10px;
 }
+
+
+.panel-costs .panel-heading,
+.panel-revenues .panel-heading{
+    position: relative;
+}
+
+.panel .panel-heading .btn.pull-right{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+}

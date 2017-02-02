@@ -13,22 +13,16 @@ export default class CostOfRevenueList extends Component {
   }
 
   render() {
-    const revenuePanel = Array.from(this.revenues.keys()).map(revenue => 
-      <RevenuePanel 
-        title='Bevételek' 
-        items={this.revenues.get(revenue)}
-        key={revenue}
-      />
-    )
-    
-    var costPanel;
-        
+      
+    var costPanel, revenuePanel;
+      
     if(this.costs.size > 0){
         costPanel = Array.from(this.costs.keys()).map(cost => 
           <CostPanel 
             title='Kiadások' 
             items={this.costs.get(cost)}
             key={cost}
+            handleAddCostClick={e => this.props.handleAddCostClick(e)}
           />
         )
     }else{
@@ -36,22 +30,33 @@ export default class CostOfRevenueList extends Component {
             title='Kiadások' 
             items=''
             key=''
+            handleAddCostClick={e => this.props.handleAddCostClick(e)}
           />
+    }
+    
+    if(this.revenues.size > 0){
+        revenuePanel = Array.from(this.revenues.keys()).map(revenue => 
+            <RevenuePanel 
+              title='Bevételek' 
+              items={this.revenues.get(revenue)}
+              key={revenue}
+              handleAddRevenueClick={e => this.props.handleAddRevenueClick(e)}
+            />
+        )
+    }else{
+        revenuePanel =  <RevenuePanel 
+              title='Bevételek' 
+              items=''
+              key=''
+              handleAddRevenueClick={e => this.props.handleAddRevenueClick(e)}
+            />
     }
 
     return (
-        <div>
-            <div className="row">
-              {revenuePanel}
-              {costPanel}
-            </div> 
-            <div className="row">
-                <button className="btn btn-primary add-cost-button"
-                  onClick={e => this.props.handleAddRevenueClick(e)}>+ Bevétel hozzáadása</button>
-                <button className="btn btn-success add-revenue-button"
-                  onClick={e => this.props.handleAddCostClick(e)}>+ Kiadás hozzáadása</button>
-            </div>
-       </div>
+        <div className="row">
+          {revenuePanel}
+          {costPanel}
+        </div> 
     );
   }
 }

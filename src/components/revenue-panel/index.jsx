@@ -6,23 +6,36 @@ class RevenuePanel extends Component {
   render() {
 
     const { title, items } = this.props
-    const tableRows = items.map((item, i) => 
-      <tr key={i} onClick={() => this.props.state.selectRevenueEntry(item)}>
+    const tableRows = items ? items.map((item, i) => 
+      <tr key={i}>
         <td>{item.ertek}</td>
         <td>{item.datum}</td>
         <td>{item.megjegyzes}</td>
         <td>
-            <button type='button' 
-            onClick={() => this.props.state.deleteRevenueEntry(item)}
-            className="btn btn-danger">Törlés</button>
+            <button type='button' className="btn btn-danger"
+                onClick={() => this.props.state.deleteRevenueEntry(item)}
+                >
+                <i className="glyphicon glyphicon-trash"></i>
+            </button>
+            <button type='button' className="btn btn-primary"
+                onClick={() => this.props.state.selectRevenueEntry(item)}
+                >
+                <i className="glyphicon glyphicon-pencil"></i>
+            </button>
         </td>
       </tr>
-    )
+    ) : <tr><td colSpan="4">Nincs rögzített érték</td></tr>
 
 
     return (
       <div className="panel panel-primary panel-revenues">
-        <div className="panel-heading">{title}</div>
+        <div className="panel-heading">
+            {title}
+            <button className="btn btn-success add-cost-button pull-right"
+                onClick={e => this.props.handleAddRevenueClick(e)}>
+                <i className="glyphicon glyphicon-plus"></i>
+            </button>
+        </div>
         <table className="table table-striped table-hover ">
             <thead>
                 <tr>

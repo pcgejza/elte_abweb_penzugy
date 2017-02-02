@@ -28,7 +28,13 @@ class CostPanel extends Component {
     
     return (
       <div className="panel panel-primary panel-costs">
-        <div className="panel-heading">{title}</div>
+        <div className="panel-heading">
+            {title}
+            <button className="btn btn-success add-cost-button pull-right"
+                onClick={e => this.props.handleAddCostClick(e)}>
+                <i className="glyphicon glyphicon-plus"></i>
+            </button>
+        </div>
         <table className="table table-striped table-hover ">
             <thead>
                 <tr>

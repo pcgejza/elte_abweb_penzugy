@@ -1,4 +1,4 @@
-# Adatbázisok a web-en REACT beadandó
+# Adatbázisok a web-en REACT-mobx beadandó
 
 Based on [mobx-react-boilerplate](https://github.com/mobxjs/mobx-react-boilerplate).
 
