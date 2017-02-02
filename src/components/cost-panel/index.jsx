@@ -1,30 +1,33 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react'
+import TableButtons from '../buttons/table/'
 
 @observer(['state'])
 class CostPanel extends Component {
   render() {
-
+      
     const { title, items } = this.props
-    const tableRows = items ? items.map((item, i) => 
-      <tr key={i}>
-        <td>{item.ertek}</td>
-        <td>{item.datum}</td>
-        <td>{item.megjegyzes}</td>
-        <td>
-            <button type='button' className="btn btn-danger"
-                onClick={() => this.props.state.deleteCostEntry(item)}
-                >
-                <i className="glyphicon glyphicon-trash"></i>
-            </button>
-            <button type='button' className="btn btn-primary"
-                onClick={() => this.props.state.selectCostEntry(item)}
-                >
-                <i className="glyphicon glyphicon-pencil"></i>
-            </button>
-        </td>
-      </tr>
-      ) : <tr><td colSpan="4">Nincs rögzített érték</td></tr>
+    
+    var tableRows = [];
+    if(items.length > 0){
+        var _this = this;
+        items.forEach(function(item,i){
+           tableRows.push(<tr key={i}>
+            <td>{item.ertek}</td>
+            <td>{item.datum}</td>
+            <td>{item.megjegyzes}</td>
+            <td>
+                <TableButtons
+                    deleteEntry={() => _this.props.state.deleteCostEntry(item)}
+                    selectEntry={() => _this.props.state.selectCostEntry(item)}
+                    item={item}
+                />
+            </td>
+          </tr>)
+        });
+    }else{
+        tableRows = <tr><td colSpan="4">Nincs rögzített érték</td></tr>
+    }
     
     return (
       <div className="panel panel-primary panel-costs">

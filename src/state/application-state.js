@@ -7,7 +7,7 @@ export default class AppState {
   @observable selectedRevenueEntry = null
   @observable selectedCostEntry = null
   @observable revenueEntries = [
-      {
+        {
           'id' : 1,
           'ertek' : 1500,
           'datum' : '2016.10.14',
@@ -15,11 +15,17 @@ export default class AppState {
       }
   ] // Bevételek
   @observable costEntries = [
-      {
+       {
           'id' : 1,
           'ertek' : 6200,
           'datum' : '2016.10.20',
           'megjegyzes' : 'Auchan vásárlás',
+      },
+       {
+          'id' : 2,
+          'ertek' : 3252,
+          'datum' : '2016.10.20',
+          'megjegyzes' : 'Auchan 213',
       }
   ] // Kiadások
   dates = new Set()
@@ -40,20 +46,6 @@ export default class AppState {
     return this.date.toLocaleDateString()
   }
 
-  @computed get meals() {
-    const date = this.localDateString
-    const { entries } = this
-
-    const entriesByDate = 
-      entries.filter(entry => entry.date === date)
-
-    const meals = new Set(entriesByDate.map(entry => entry.meal))
-
-    const itemsByMeal = new Map()
-    meals.forEach(meal => itemsByMeal.set(meal, entriesByDate.filter(entry=>entry.meal === meal)))
-    
-    return itemsByMeal
-  }
 
   @computed get uiState() {
     if(this.selectedRevenueEntry){
@@ -116,25 +108,15 @@ export default class AppState {
   // Visszaadja az összes bevételt
   @computed get revenues() {
     const { revenueEntries } = this
-    
-    const meals = new Set(revenueEntries.map(entry => entry.revenue))
-
-    const itemsByRevenue = new Map()
-    meals.forEach(revenue => itemsByRevenue.set(revenue, revenueEntries.filter(entry=>entry.revenue === revenue)))
-    
-    return itemsByRevenue
+        
+    return revenueEntries
   }
   
   // Visszaadja az összes kiadást
   @computed get costs() {
     const { costEntries } = this
     
-    const costs = new Set(costEntries.map(entry => entry.cost))
-
-    const itemsByCosts = new Map()
-    costs.forEach(cost => itemsByCosts.set(cost, costEntries.filter(entry=>entry.cost === cost)))
-    
-    return itemsByCosts
+    return costEntries
   }
   
   @action updateCostEntry(entry, data) {

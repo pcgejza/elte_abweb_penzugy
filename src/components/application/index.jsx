@@ -40,7 +40,8 @@ class Application extends Component {
   }
 
   handleCancelEntry() {
-    this.props.state.selectEntry(null)
+    this.props.state.selectRevenueEntry(null)
+    this.props.state.selectCostEntry(null)
   }
 
   handleDeleteEntry() {

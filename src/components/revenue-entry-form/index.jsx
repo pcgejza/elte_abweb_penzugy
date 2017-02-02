@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { observable, action } from 'mobx'
 import { observer } from 'mobx-react'
+import FormButtons from '../buttons/new-edit-cost-revenue/'
 
 @observer
 export default class RevenueEntryForm extends Component {
@@ -37,10 +38,11 @@ export default class RevenueEntryForm extends Component {
   }
 
   render() {
+    var ptitle = 'Bevétel ' + (this.id ? 'szerkesztése' : 'rögzítése')
 
     return (
       <div className="row">
-        <h2>Bevétel rögzítése</h2>
+        <h2>{ptitle}</h2>
         <form onSubmit={e => this.handleSubmit(e)}>
             <div className="form-group has-feedback">
               <label htmlFor="food" className="control-label">Bevétel értéke</label>
@@ -68,15 +70,9 @@ export default class RevenueEntryForm extends Component {
               <span className="help-block">Itt megadhatsz egy leírást a bevételhez</span>
             </div>
 
-            <div className="form-group">
-                <div className="col-lg-10 col-lg-offset-2">
-                    <button type="button" className="btn btn-default" onClick={e => this.props.onBack()}>Vissza</button>
-                    <button type="submit" className="btn btn-primary">Rögzítés</button>
-                    { this.id &&
-                      <button type="button" className="btn btn-danger" onClick={e => this.props.onDelete()}>Delete</button>
-                    }
-                </div>
-            </div>
+            <FormButtons 
+                onBack={e => this.props.onBack()}
+            />
         </form>
       </div> 
     );
