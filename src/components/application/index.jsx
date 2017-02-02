@@ -59,6 +59,7 @@ class Application extends Component {
         costs={this.props.state.costs} 
         handleAddRevenueClick={e => this.handleAddRevenueClick(e)}
         handleAddCostClick={e => this.handleAddCostClick(e)}
+        myMoney={this.props.state.calcMyMoney()}
       />,
       'revenue_form': <RevenueEntryForm 
         onSubmit={data => this.handleRevenueEntrySubmission(data)}

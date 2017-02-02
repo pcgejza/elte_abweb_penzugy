@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { observable, action } from 'mobx'
 import { observer } from 'mobx-react'
 import FormButtons from '../buttons/new-edit-cost-revenue/'
+import ForintInput from '../form-elements/forint-input/'
 
 @observer
 export default class CostEntryForm extends Component {
@@ -36,6 +37,10 @@ export default class CostEntryForm extends Component {
       })
     }
   }
+  
+  changeErtek(e){
+      this.change('ertek', e.target.value)
+  }
 
   render() {
     var ptitle = 'Költség ' + (this.id ? 'szerkesztése' : 'rögzítése')
@@ -46,11 +51,11 @@ export default class CostEntryForm extends Component {
         <form onSubmit={e => this.handleSubmit(e)}>
             <div className="form-group has-feedback">
               <label htmlFor="food" className="control-label">Költség értéke</label>
-              <input type="text" placeholder="Költség értéke Ft-ban" id="ertek" className="form-control"
-                value={this.ertek}  
-                onChange={e => this.change('ertek', e.target.value) }
-                required
-              />
+              <ForintInput 
+                value={this.ertek}
+                placeholder="Költség értéke Ft-ban"
+                ch={e => this.changeErtek(e)}
+                />
             </div>
             
             <div className="form-group has-feedback">

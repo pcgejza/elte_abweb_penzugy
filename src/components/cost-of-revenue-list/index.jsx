@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RevenuePanel from '../revenue-panel/'
 import CostPanel from '../cost-panel/'
+import MyMoneyPanel from '../extras/my-money/'
 
 export default class CostOfRevenueList extends Component {
 
@@ -27,10 +28,17 @@ export default class CostOfRevenueList extends Component {
         />
 
     return (
-        <div className="row">
-          {revenuePanel}
-          {costPanel}
-        </div> 
+            <div>
+                <div className="row">
+                  {revenuePanel}
+                  {costPanel}
+                </div> 
+                <hr />
+                
+                <MyMoneyPanel 
+                    myMoney={this.props.myMoney}
+                />
+            </div>
     );
   }
 }

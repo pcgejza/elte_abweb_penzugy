@@ -127,4 +127,20 @@ export default class AppState {
     Object.assign(entry, data)
   }
   
+  // A függvény visszaadja, hogy mennyi pénzem van jelenleg
+  @action calcMyMoney(){
+        var money = 0;
+        const { costEntries, revenueEntries } = this
+      
+        revenueEntries.forEach(function(item,i){
+           money += parseInt(item.ertek)
+        });
+        
+        costEntries.forEach(function(item,i){
+           money -= parseInt(item.ertek)
+        });
+      
+        return money;
+  }
+  
 }
