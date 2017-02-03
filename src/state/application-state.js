@@ -52,7 +52,6 @@ export default class AppState {
     this.costEntries.splice(index, 1)
   }
   
-  
   // Bevétel elem kiválasztása
   @action selectRevenueEntry(revenueEntry) {
     this.selectedRevenueEntry = revenueEntry
