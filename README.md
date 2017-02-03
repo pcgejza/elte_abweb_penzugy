@@ -48,3 +48,5 @@ módosítsd az adatokat tároló objektumot:
 ## Licensz
 Az applikáció az **ELTE Informatikai Kar**, **Adatbázisok a weben** nevű tantárgy beadandójaként készült.
 Bárki szabadon felhasználhatja és terjesztheti, a forrás megjelölésével.
+
+Budapest, 2017
