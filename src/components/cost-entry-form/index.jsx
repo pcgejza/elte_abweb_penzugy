@@ -71,7 +71,8 @@ export default class CostEntryForm extends Component {
             <div className="form-group has-feedback">
               <label htmlFor="food" className="control-label">Megjegyzés</label>
               <textarea className="form-control" 
-                        onChange={e => this.change('megjegyzes', e.target.value) }>{this.megjegyzes}</textarea>
+                        value={this.megjegyzes}
+                        onChange={e => this.change('megjegyzes', e.target.value) }></textarea>
               <span className="help-block">Itt megadhatsz egy leírást a költséghez</span>
             </div>
             

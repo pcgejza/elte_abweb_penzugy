@@ -18,51 +18,15 @@ export default class AppState {
   @observable myMoney = 0
   @observable maxCostsText = ''
   @observable revenueEntries = [
-        {
-          'id' : 1,
-          'ertek' : 1500,
-          'datum' : '2016.10.14',
-          'megjegyzes' : 'Eladtam a flakonokat',
-      }
+      
   ] // Bevételek
   @observable costEntries = [
-       {
-          'id' : 1,
-          'ertek' : 6200,
-          'datum' : '2016.10.20',
-          'megjegyzes' : 'Auchan vásárlás',
-      },
-       {
-          'id' : 2,
-          'ertek' : 3252,
-          'datum' : '2016.10.20',
-          'megjegyzes' : 'Auchan 213',
-      },
-       {
-          'id' : 3,
-          'ertek' : 10000,
-          'datum' : '2016-11-20',
-          'megjegyzes' : 'Auchan 213',
-      }
+      
   ] // Kiadások
-  dates = new Set()
-
 
   constructor() {
-    reaction(
-      () => this.localDateString,
-      date => this.getEntriesForDate(date) 
-    )
+      
   }
-
-  getEntriesForDate(date) {
-    if (this.dates.has(date)) return
-  }
-
-  @computed get localDateString() {
-    return this.date.toLocaleDateString()
-  }
-
 
   @computed get uiState() {
     if(this.selectedRevenueEntry){
@@ -76,24 +40,13 @@ export default class AppState {
     return 'list'
   }
 
-  @action selectEntry(entry) {
-    this.selectedEntry = entry
-  }
-
-  @action decreaseDate() {
-    this.date = new Date(this.date.getTime() - 1000*60*60*24)
-  }
-
-  @action increaseDate() {
-    this.date = new Date(this.date.getTime() + 1000*60*60*24)
-  }
-
-
+  // Bevétel elem törlése
   @action deleteRevenueEntry(entry) {
     const index = this.revenueEntries.indexOf(entry)
     this.revenueEntries.splice(index, 1)
   }
 
+  // Kiadás elem törlése
   @action deleteCostEntry(entry) {
     const index = this.costEntries.indexOf(entry)
     this.costEntries.splice(index, 1)
@@ -242,7 +195,7 @@ export default class AppState {
             
             text = 'A legtöbb költséged '+maxValIndex+' hónapban volt, ami '+maxVal+'Ft';
         }else{
-            text = 'Nem volt még költséged!'
+            text = 'Nem volt még költséged'
         }
         
         this.maxCostsText = text
