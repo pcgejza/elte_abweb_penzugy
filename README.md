@@ -49,10 +49,10 @@ módosítsd az adatokat tároló objektumot:
 ![alt tag](https://github.com/pcgejza/elte_abweb_penzugy/blob/master/screenshots/screenshot1.png)
 
 ### Információs rész
-![alt tag](https://github.com/pcgejza/elte_abweb_penzugy/screenshots/screenshot2)
+![alt tag](https://github.com/pcgejza/elte_abweb_penzugy/blob/master/screenshots/screenshot2.png)
 
 ### Tétel szerkesztése
-![alt tag](https://github.com/pcgejza/elte_abweb_penzugy/screenshots/screenshot3)
+![alt tag](https://github.com/pcgejza/elte_abweb_penzugy/blob/master/screenshots/screenshot3.png)
 
 
 ## Licensz
