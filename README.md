@@ -43,6 +43,16 @@ módosítsd az adatokat tároló objektumot:
   }
 ```
 
+## Képernyőképek
+
+### Véletlenszerűen generált tételek
+![alt tag](https://github.com/pcgejza/elte_abweb_penzugy/screenshots/screenshot1)
+
+### Információs rész
+![alt tag](https://github.com/pcgejza/elte_abweb_penzugy/screenshots/screenshot2)
+
+### Tétel szerkesztése
+![alt tag](https://github.com/pcgejza/elte_abweb_penzugy/screenshots/screenshot3)
 
 
 ## Licensz
