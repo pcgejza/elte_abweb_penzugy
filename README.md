@@ -8,16 +8,17 @@ Based on [mobx-react-boilerplate](https://github.com/mobxjs/mobx-react-boilerpla
 ```
 npm install
 npm start
-Nyisd meg a böngésződben a következő címet: [http://localhost:3000](http://localhost:3000) 
 ```
+
+Miután ezekkel megvagy, nyisd meg a böngésződben a következő címet: [http://localhost:3000](http://localhost:3000) 
 
 ## Leírás
 
-## Funkcionalitás
+### Funkcionalitás
 Ez egy "pénztárca" alkalmazás, ahová a felhasználó rögzítheti, hogy mennyi bevétele és kiadása volt,
 valamint egy megjegyzést is meg tud adni a rendszerben.
 
-Funkciók:
+#### Funkciók:
 - új tétel felvitele
 - tétel szerkesztése
 - tétel törlése
