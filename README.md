@@ -46,7 +46,7 @@ módosítsd az adatokat tároló objektumot:
 ## Képernyőképek
 
 ### Véletlenszerűen generált tételek
-![alt tag](https://github.com/pcgejza/elte_abweb_penzugy/screenshots/screenshot1)
+![alt tag](https://github.com/pcgejza/elte_abweb_penzugy/blob/master/screenshots/screenshot1.png)
 
 ### Információs rész
 ![alt tag](https://github.com/pcgejza/elte_abweb_penzugy/screenshots/screenshot2)
