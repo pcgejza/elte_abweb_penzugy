@@ -1,7 +1,4 @@
-# Adatbázisok a web-en REACT-mobx beadandó
-
-Based on [mobx-react-boilerplate](https://github.com/mobxjs/mobx-react-boilerplate).
-
+# Pénztárca alkalmazás [react boilerplate](http://localhost:3000)-ben
 
 ## Telepítés és indítás
 
@@ -47,3 +44,7 @@ módosítsd az adatokat tároló objektumot:
 ```
 
 
+
+## Licensz
+Az applikáció az **ELTE Informatikai Kar**, **Adatbázisok a weben** nevű tantárgy beadandójaként készült.
+Bárki szabadon felhasználhatja és terjesztheti, a forrás megjelölésével.
