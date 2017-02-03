@@ -14,6 +14,11 @@ class Application extends Component {
   handleAddRevenueClick(e) {
     this.props.state.selectRevenueEntry({})
   }
+  
+  calcMyMoney() {
+    this.props.state.calcMyMoney()
+    this.props.state.calcMyMaxCosts()
+  }
 
   handleAddCostClick(e) {
     this.props.state.selectCostEntry({})
@@ -44,14 +49,10 @@ class Application extends Component {
     this.props.state.selectCostEntry(null)
   }
 
-  handleDeleteEntry() {
-    this.props.state.deleteEntry(this.props.state.selectedEntry)
-    this.props.state.selectEntry(null)
-  }
 
   render() {
-      console.log('Current state:', this.props.state.uiState)
     const date = this.props.state.localDateString
+    this.calcMyMoney()
 
     const compMapping = {
       'list': <CostOfRevenueList 
@@ -59,26 +60,27 @@ class Application extends Component {
         costs={this.props.state.costs} 
         handleAddRevenueClick={e => this.handleAddRevenueClick(e)}
         handleAddCostClick={e => this.handleAddCostClick(e)}
-        myMoney={this.props.state.calcMyMoney()}
+        myMoney={this.props.state.myMoney}
+        maxCostsText={this.props.state.maxCostsText}
       />,
       'revenue_form': <RevenueEntryForm 
         onSubmit={data => this.handleRevenueEntrySubmission(data)}
         entry={this.props.state.selectedRevenueEntry} 
         onBack={() => this.handleCancelEntry()}
-        onDelete={() => this.handleDeleteEntry()}
       />,
       'cost_form': <CostEntryForm 
         onSubmit={data => this.handleCostEntrySubmission(data)}
         entry={this.props.state.selectedCostEntry} 
         onBack={() => this.handleCancelEntry()}
-        onDelete={() => this.handleDeleteEntry()}
       />
     }
     const comp = compMapping[this.props.state.uiState]
 
     return (
       <div>
-        <NavBar />
+        <NavBar state={this.props.state}
+            onBack={() => this.handleCancelEntry()}
+        />
         <div className="container">
           <h1>Bevételek és kiadások</h1>
           <div className="row">

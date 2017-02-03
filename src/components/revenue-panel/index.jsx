@@ -39,7 +39,7 @@ class RevenuePanel extends Component {
                 <i className="glyphicon glyphicon-plus"></i>
             </button>
         </div>
-        <table className="table table-striped table-hover ">
+        <table className="table table-striped table-hover table-fixed">
             <thead>
                 <tr>
                     <th>Érték</th>

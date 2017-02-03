@@ -17,7 +17,8 @@ class NavBar extends Component {
 
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul className="nav navbar-nav">
-            <li className="active"><a href="#">Bevételek-kiadások <span className="sr-only">(current)</span></a></li>
+            <li className="active"><a href="#" onClick={e => this.props.onBack()}>Bevételek-kiadások <span className="sr-only">(current)</span></a></li>
+            <li><a href="#"  onClick={e => this.props.state.clearDatasAndSetRandomValues()}>Táblák feltöltése véletlenszerű értékekkel</a></li>
             
             </ul>
         </div>

@@ -43,24 +43,24 @@ export default class CostEntryForm extends Component {
   }
 
   render() {
-    var ptitle = 'Költség ' + (this.id ? 'szerkesztése' : 'rögzítése')
+    var ptitle = 'Kiadás ' + (this.id ? 'szerkesztése' : 'rögzítése')
     
     return (
       <div className="row">
         <h2>{ptitle}</h2>
         <form onSubmit={e => this.handleSubmit(e)}>
             <div className="form-group has-feedback">
-              <label htmlFor="food" className="control-label">Költség értéke</label>
+              <label htmlFor="food" className="control-label">Kiadás értéke</label>
               <ForintInput 
                 value={this.ertek}
-                placeholder="Költség értéke Ft-ban"
+                placeholder="Kiadás értéke Ft-ban"
                 ch={e => this.changeErtek(e)}
                 />
             </div>
             
             <div className="form-group has-feedback">
-              <label htmlFor="food" className="control-label">Költség keletkezésének ideje</label>
-              <input type="text" placeholder="Mikor keletkezett az költség?" id="datum" className="form-control"
+              <label htmlFor="food" className="control-label">Kiadás keletkezésének ideje</label>
+              <input type="text" placeholder="Mikor keletkezett a kiadás?" id="datum" className="form-control"
                 value={this.datum}  
                 onChange={e => this.change('datum', e.target.value) }
                 required

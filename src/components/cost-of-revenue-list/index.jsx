@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import RevenuePanel from '../revenue-panel/'
 import CostPanel from '../cost-panel/'
 import MyMoneyPanel from '../extras/my-money/'
+import MyMaxCostsMonth from '../extras/my-max-cost-month/'
 
 export default class CostOfRevenueList extends Component {
 
@@ -37,6 +38,9 @@ export default class CostOfRevenueList extends Component {
                 
                 <MyMoneyPanel 
                     myMoney={this.props.myMoney}
+                />
+                <MyMaxCostsMonth 
+                    maxCostsText={this.props.maxCostsText}
                 />
             </div>
     );
